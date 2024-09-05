@@ -40,7 +40,7 @@ public class Core {
 				System.out.println("Arquivo escolhido: " + filePath.toFile().getName());
 
                 // deserializa o conteúdo do arquivo em objetos Java
-				List<FaturamentoWrapper> faturamentos = this.deserialize(filePath);
+				List<FaturamentoWrapper> faturamentos = this.deserializeFile(filePath);
 
                 // executa as consultas de faturamento
                 faturamentoService.menuFaturamento(faturamentos);
@@ -51,7 +51,7 @@ public class Core {
 		}
     }
 
-    private List<FaturamentoWrapper> deserialize(Path filePath) throws IOException {
+    private List<FaturamentoWrapper> deserializeFile(Path filePath) throws IOException {
 		return deserializers.stream()
 			.filter(deserializer -> deserializer.support(filePath))
 			.findFirst()
