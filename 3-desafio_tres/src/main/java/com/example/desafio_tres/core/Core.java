@@ -58,10 +58,10 @@ public class Core {
 		String filename = filePath.toFile().getName();
 		List<FaturamentoWrapper> faturamentos = new ArrayList<>();
 		if (filename.endsWith(".json"))
-			faturamentos = jsonService.readFaturamentoDiarioFromJson(filePath);
+			faturamentos = jsonService.deserialize(filePath);
 
 		if (filename.endsWith(".xml"))
-			faturamentos = xmlService.readFaturamentoDiarioFromXML(filePath);
+			faturamentos = xmlService.deserialize(filePath);
 
 		return faturamentos;
 	}

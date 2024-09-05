@@ -17,7 +17,7 @@ public class XMLFileReaderService {
 	private XmlMapper mapper = new XmlMapper();
 
 
-	public List<FaturamentoWrapper> readFaturamentoDiarioFromXML(Path filePath) throws IOException {
+	public List<FaturamentoWrapper> deserialize(Path filePath) throws IOException {
 		try {
 			String fileContent = Files.readString(filePath);
 			return mapper.readValue(fileContent, new TypeReference<List<FaturamentoWrapper>>(){});

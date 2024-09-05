@@ -17,7 +17,7 @@ public class JsonFileReaderService {
 	private ObjectMapper mapper = new ObjectMapper();
 
 
-	public List<FaturamentoWrapper> readFaturamentoDiarioFromJson(Path filePath) throws IOException {
+	public List<FaturamentoWrapper> deserialize(Path filePath) throws IOException {
 		try {
 			String fileContent = Files.readString(filePath);
 			return mapper.readValue(fileContent, new TypeReference<List<FaturamentoWrapper>>(){});
