@@ -1,0 +1,1 @@
+#### Observação: Tomei a liberdade de entregar um pouco mais do que foi pedido. Essa aplicação lê tanto arquivos Json como XML. Todos esses arquivos deve ser alocados no diretório 'entries', na raiz do projeto.
