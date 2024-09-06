@@ -3,18 +3,14 @@ package com.example.desafio_quatro;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DesafioQuatroSanApplication implements CommandLineRunner {
+public class DesafioQuatroSanApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(DesafioQuatroSanApplication.class, args);		
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
+		SpringApplication.run(DesafioQuatroSanApplication.class, args);	
+		
 		Map<String, Double> faturamentos = Map.of(
 			"SP", 67836.43,
 			"RJ", 36678.66,

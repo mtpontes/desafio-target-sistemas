@@ -47,7 +47,7 @@ public class FileService {
 	}
 
 	private Map<Integer, Path> mapFiles(List<Path> paths) {
-        return IntStream.range(0, paths.size())
+		return IntStream.range(0, paths.size())
 			.boxed()
 			.collect(Collectors.toMap(
 				streamIndex -> streamIndex + 1, 

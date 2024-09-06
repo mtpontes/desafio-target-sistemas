@@ -3,19 +3,14 @@ package com.example.desafio_dois;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DesafioDoisApplication implements CommandLineRunner {
+public class DesafioDoisApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioDoisApplication.class, args);
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
 
 		int input = 0;

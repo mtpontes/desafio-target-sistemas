@@ -21,37 +21,37 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class Core {
 
-    private final FileService fileService;
-    private final FaturamentoService faturamentoService;
+	private final FileService fileService;
+	private final FaturamentoService faturamentoService;
 	private final List<FileDeserializer> deserializers;
-    private final Scanner scanner = new Scanner(System.in);
+	private final Scanner scanner = new Scanner(System.in);
 
 
-    public void cli() {
+	public void cli() {
 
-        Path path = Paths.get("")
+		Path path = Paths.get("")
 			.toAbsolutePath()
 			.resolve("entries");
 
 		if (Files.exists(path) && Files.isDirectory(path)) {
 			try (Stream<Path> files = Files.walk(path)) {
-                // recupera o arquivo
+				// recupera o arquivo
 				Path filePath = fileService.menuDeArquivos(files, scanner);
 				System.out.println("Arquivo escolhido: " + filePath.toFile().getName());
 
-                // deserializa o conteúdo do arquivo em objetos Java
-				List<FaturamentoWrapper> faturamentos = this.deserialize(filePath);
+				// deserializa o conteúdo do arquivo em objetos Java
+				List<FaturamentoWrapper> faturamentos = this.deserializeFile(filePath);
 
-                // executa as consultas de faturamento
-                faturamentoService.menuFaturamento(faturamentos);
+				// executa as consultas de faturamento
+				faturamentoService.menuFaturamento(faturamentos);
 
 			} catch (IOException e) {
 				System.out.println("Erro ao ler diretório: " + e.getMessage());
 			}
 		}
-    }
+	}
 
-    private List<FaturamentoWrapper> deserialize(Path filePath) throws IOException {
+	private List<FaturamentoWrapper> deserializeFile(Path filePath) throws IOException {
 		return deserializers.stream()
 			.filter(deserializer -> deserializer.support(filePath))
 			.findFirst()
